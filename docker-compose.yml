@@ -1,8 +1,28 @@
-version: "3"
+	version: "3"
 
 services:
+
+  mosquitto:
+    image: "eclipse-mosquitto:latest"
+    container_name: mosquitto
+    restart: "always"
+    ports:
+      - "1883:1883"
+    volumes:
+      - "./mosquitto:/mosquitto/config/:ro"
+      - "mosquitto-storage:/mosquitto/data"
+      - "mosquitto-storage:/mosquitto/log"
+  
+  bridge:
+    restart: always
+    build: ./bridge
+    depends_on:
+    - influxdb
+    - mosquitto
+  
   influxdb:
-    image: influxdb:2.1.1
+    image: influxdb
+    container_name: influxdb
     volumes:
       - influxdb-storage:/var/lib/influxdb2:rw
     env_file:
@@ -12,17 +32,9 @@ services:
     ports:
       - ${DOCKER_INFLUXDB_INIT_PORT}:8086
 
-  telegraf:
-    image: telegraf:1.19
-    volumes:
-      - ${TELEGRAF_CFG_PATH}:/etc/telegraf/telegraf.conf:rw
-    env_file:
-      - .env
-    depends_on:
-      - influxdb
-
   grafana:
     image: grafana/grafana-oss:8.4.3
+    container_name: grafana
     volumes:
       - grafana-storage:/var/lib/grafana:rw
     depends_on:
@@ -30,6 +42,12 @@ services:
     ports:
       - ${GRAFANA_PORT}:3000
 
+
+
+
+
 volumes:
   grafana-storage:
   influxdb-storage:
+  mosquitto-storage:
+  jupyterlab-data:
