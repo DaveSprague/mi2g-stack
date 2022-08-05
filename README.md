@@ -23,7 +23,8 @@ Navigate to the project directory
   cd mi2g-stack
 ```
 
-** BELOW NEEDS TO BE UPDATED **
+##BELOW NEEDS TO BE UPDATED
+
 Change the environment variables define in `.env` that are used to setup and deploy the stack
 ```bash
 ├── .env         <---
