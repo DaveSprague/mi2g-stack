@@ -2,7 +2,7 @@
 
 
 
-# Mosquitto, InfluxDB2, Grafana (TIG) Stack
+# Mosquitto, InfluxDB2, Grafana (MI2G) Stack
 
 Gain the ability to analyze and monitor telemetry data by deploying the TIG stack within minutes using [Docker](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/install/).
 
