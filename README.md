@@ -1,8 +1,8 @@
 
-![Logo](https://user-images.githubusercontent.com/64506580/159311466-f720a877-6c76-403a-904d-134addbd6a86.png)
 
 
-# Telegraf, InfluxDB, Grafana (TIG) Stack
+
+# Mosquitto, InfluxDB2, Grafana (TIG) Stack
 
 Gain the ability to analyze and monitor telemetry data by deploying the TIG stack within minutes using [Docker](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/install/).
 
@@ -14,13 +14,13 @@ Gain the ability to analyze and monitor telemetry data by deploying the TIG stac
 Clone the project
 
 ```bash
-  git clone https://github.com/huntabyte/tig-stack.git
+  git clone https://github.com/huntabyte/mi2g-stack.git
 ```
 
 Navigate to the project directory
 
 ```bash
-  cd tig-stack
+  cd mi2g-stack
 ```
 
 Change the environment variables define in `.env` that are used to setup and deploy the stack
@@ -49,9 +49,9 @@ docker-compose up -d
 ```
 ## Docker Images Used (Official & Verified)
 
-[**Telegraf**](https://hub.docker.com/_/telegraf) / `1.19`
 
-[**InfluxDB**](https://hub.docker.com/_/influxdb) / `2.1.1`
+
+[**InfluxDB**](https://hub.docker.com/_/influxdb) / `2.3.0`
 
 [**Grafana-OSS**](https://hub.docker.com/r/grafana/grafana-oss) / `8.4.3`
 
